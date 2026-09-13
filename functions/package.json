@@ -1,0 +1,20 @@
+{
+  "name": "bxh-arena-engagement-functions",
+  "version": "13.29.10",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": "22"
+  },
+  "scripts": {
+    "check": "node --check index.js && node --check operations.js && node --check operations-core.js && node --check accounts.js && node --check accounts-core.js && node --check entry-selection.js && node --check hosting.js && node --check hosting-core.js && node --check registration-selection.js && node --check player-cards.js",
+    "deploy": "firebase deploy --only functions"
+  },
+  "dependencies": {
+    "firebase-admin": "^14.4.0",
+    "firebase-functions": "^7.3.2"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}
