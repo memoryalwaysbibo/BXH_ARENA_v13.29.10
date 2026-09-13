@@ -34,6 +34,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Require and unpack Functions bundle
+        shell: bash
+        run: |
+          if [ ! -f functions-source.zip ]; then
+            echo "Missing functions-source.zip. Upload the current Functions bundle to the repository first." >&2
+            exit 1
+          fi
+          rm -rf functions
+          unzip -q functions-source.zip
+          test -f functions/index.js
+          test -f functions/package.json
+          test -f functions/package-lock.json
+
       - name: Set up Node.js 22
         uses: actions/setup-node@v4
         with:
